@@ -1,0 +1,6 @@
+{:deps {org.clojure/java.jdbc {:mvn/version "0.7.8"}
+        cli-matic {:mvn/version "0.3.6"}
+        migrer {:local/root "/home/ingenium/Projects/migrer"}
+        ;github-mdiin/migrer {:git/url "https://github.com/mdiin/migrer" :sha "bb334a1f3b62befe46ffacf16829ef4850351827"}
+        org.postgresql/postgresql {:mvn/version "42.1.4"}}
+ :paths ["src"]}
