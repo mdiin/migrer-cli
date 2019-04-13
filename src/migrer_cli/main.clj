@@ -25,7 +25,7 @@
          :version "1"}
    :global-opts [{:option "dbtype"
                   :short "t"
-                  :type #{"postgresql"}
+                  :type #{"postgresql" "sap"}
                   :as "Database type"
                   :default "postgresql"}
                  {:option "dbname"
