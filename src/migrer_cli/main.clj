@@ -48,7 +48,7 @@
                   :short "P"
                   :type :string}
                  {:option "metadata-table"
-                  :short "mt"
+                  :short "m"
                   :as "Table where migrer stores metadata"
                   :type :string
                   :default "migrations"}]
