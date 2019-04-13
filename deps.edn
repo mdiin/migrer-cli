@@ -3,4 +3,8 @@
         github-mdiin/migrer {:git/url "https://github.com/mdiin/migrer" :sha "bd20a675e60a41b017d7de315898ef7a29c95cb6"}
         com.sap.cloud.db.jdbc/ngdbc {:mvn/version "2.3.62"}
         org.postgresql/postgresql {:mvn/version "42.2.5"}}
- :paths ["src"]}
+ :paths ["src"]
+ :aliases {:uberjar {:extra-deps
+                     {github-mdiin/cambada {:git/url "https://github.com/mdiin/cambada" :sha "18958e1f12798593efd70e4c67825167416d9cef"}}
+                     :main-opts ["-m" "cambada.uberjar"
+                                 "-m" "migrer-cli.main"]}}}
