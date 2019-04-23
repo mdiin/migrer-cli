@@ -2,7 +2,14 @@
   (:gen-class)
   (:require
    [migrer.core]
-   [cli-matic.core :refer [run-cmd]]))
+   [cli-matic.core :refer [run-cmd]]
+   [clojure.set]))
+
+(defn- migrer-opts
+  [opts]
+  (clojure.set/rename-keys opts {:use-classpath? :migrer/use-classpath?
+                                 :metadata-table :migrer/table-name
+                                 :path :migrer/root}))
 
 (defn- conn
   [opts]
@@ -11,13 +18,12 @@
 (defn init!
   [opts]
   (let [c (conn opts)]
-    (migrer.core/init! c {:migrer/table-name (:metadata-table opts)})))
+    (migrer.core/init! c (migrer-opts opts))))
 
 (defn migrate!
   [opts]
   (let [c (conn opts)]
-    (migrer.core/migrate! c {:migrer/table-name (:metadata-table opts)
-                             :migrer/root (:path opts)})))
+    (migrer.core/migrate! c (migrer-opts opts))))
 
 (def cli-configuration
   {:app {:command "migrer"
@@ -61,7 +67,11 @@
                :opts [{:option "path"
                        :as "Path to migrations"
                        :type :string
-                       :default "migrations"}]
+                       :default "migrations"}
+                      {:option "use-classpath?"
+                       :as "Look for migrations on classpath. You will almost never need to set this."
+                       :type :edn
+                       :default false}]
                :description "Perform migrations"
                :runs migrate!}]})
 
