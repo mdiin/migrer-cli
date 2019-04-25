@@ -7,13 +7,19 @@
 
 (defn- migrer-opts
   [opts]
-  (clojure.set/rename-keys opts {:use-classpath? :migrer/use-classpath?
-                                 :metadata-table :migrer/table-name
-                                 :path :migrer/root}))
+  (merge (clojure.set/rename-keys opts {:use-classpath? :migrer/use-classpath?
+                                        :metadata-table :migrer/table-name
+                                        :path :migrer/root})
+         (when (= (:dbtype opts) "sap")
+           {:init/conditional-create-table? false
+            :init/conditional-create-index? false})))
 
 (defn- conn
   [opts]
-  (select-keys opts #{:dbtype :dbname :host :port :user :password}))
+  (merge
+   (select-keys opts #{:dbtype :dbname :host :port :user :password})
+   (when (= (:dbtype opts) "sap")
+     {:classname "com.sap.db.jdbc.Driver"})))
 
 (defn init!
   [opts]
