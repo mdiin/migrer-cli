@@ -1,6 +1,6 @@
 {:deps {org.clojure/java.jdbc {:mvn/version "0.7.11"}
         cli-matic {:mvn/version "0.3.11"}
-        github-mdiin/migrer {:git/url "https://github.com/mdiin/migrer" :sha "9c18d602396a72fac65dcd71b14f57212f81185b"}
+        github-mdiin/migrer {:git/url "https://github.com/mdiin/migrer" :sha "ccabf659bb769b61e8081c5bd0537fb7d68b01c1"}
         com.sap.cloud.db.jdbc/ngdbc {:mvn/version "2.4.67"}
         org.postgresql/postgresql {:mvn/version "42.2.9"}}
  :paths ["src"]
