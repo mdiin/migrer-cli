@@ -1,8 +1,8 @@
-{:deps {org.clojure/java.jdbc {:mvn/version "0.7.9"}
-        cli-matic {:mvn/version "0.3.6"}
-        github-mdiin/migrer {:git/url "https://github.com/mdiin/migrer" :sha "3da87d1da6985e2a50d97acf5ccb6a5dc6a598a7"}
-        com.sap.cloud.db.jdbc/ngdbc {:mvn/version "2.3.62"}
-        org.postgresql/postgresql {:mvn/version "42.2.5"}}
+{:deps {org.clojure/java.jdbc {:mvn/version "0.7.11"}
+        cli-matic {:mvn/version "0.3.11"}
+        github-mdiin/migrer {:git/url "https://github.com/mdiin/migrer" :sha "ccabf659bb769b61e8081c5bd0537fb7d68b01c1"}
+        com.sap.cloud.db.jdbc/ngdbc {:mvn/version "2.4.67"}
+        org.postgresql/postgresql {:mvn/version "42.2.9"}}
  :paths ["src"]
  :aliases {:uberjar {:extra-deps
                      {github-mdiin/cambada {:git/url "https://github.com/mdiin/cambada" :sha "18958e1f12798593efd70e4c67825167416d9cef"}}
